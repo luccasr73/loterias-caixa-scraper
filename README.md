@@ -4,7 +4,7 @@ Um módulo nodejs que permite pegar dados dos resultados dos sorteios da Caixa
 Econômica Federal Brasileira <br> [English] <br> A nodejs module that allows you
 to pick up data from the lottery of the Brazilian Caixa Econômica Federal
 
-## Supported lotteries
+## Supported Raffles
 
 - Megasena
 - Quina(coming soon)
