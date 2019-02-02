@@ -2,7 +2,13 @@
 
 Um módulo nodejs que permite pegar dados dos resultados dos sorteios da Caixa
 Econômica Federal Brasileira <br> [English] <br> A nodejs module that allows you
-to pick up data from the draws of the Brazilian Caixa Econômica Federal
+to pick up data from the lottery of the Brazilian Caixa Econômica Federal
+
+## Supported lotteries
+
+- Megasena
+- Quina(coming soon)
+- Lotomania(coming soon)
 
 ## Usage
 
@@ -42,15 +48,32 @@ lottery
 
 ## CLI
 
-```bash
+```console
 loterias-caixa r [type]
 loterias-caixa r [type] [number]
 ```
 
+## Methods
+
+### _resultByNumber(typeLottery, numberLottery)_
+
+**typeLottery: String,<br> numberLottery: Number**<br> Return lottery data<br>
+If number is undefined, this method will return the last lottery data
+
 ## Dev
-#### To edit, lint and build<br>
-npm run clean: clean builds<br> 
-npm run lint: Check for errors<br> 
-npm run build: Generate minified build with source-maps <br>
-npm run watch: Generate minified<br>
-npm run build with source-maps on save prepare: Clean and build
+
+#### To edit, lint and build
+
+```
+npm run clean: Clean builds
+npm run lint: Check for errors
+npm run build: Generate minified build with source-maps
+npm run watch: Generate minified build with source-maps on save
+npm run prepare: Clean and build
+```
+
+## PRs are appreciated!
+
+## License
+
+[MIT](https://github.com/luccasr73/loterias-caixa-scraper/blob/master/LICENCE)
