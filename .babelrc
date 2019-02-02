@@ -1,9 +1,11 @@
 {
-  "presets": [
-    ["env", {
+  "presets": ["minify",
+    ["@babel/preset-env", {
       "targets": {
-        "node": "6.10"
-      }
+        "node": "6",
+      },
+      "modules":"umd",
+      "debug":true
     }]
   ]
 }
