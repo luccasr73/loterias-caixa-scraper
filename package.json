@@ -1,7 +1,7 @@
 {
   "name": "loterias-caixa-scraper",
   "version": "0.0.1",
-  "description": "A module for get results of brazilian Caixa's lotteries.",
+  "description": "A module for get results of brazilian Caixa Econômica Federal lotteries.",
   "main": "index",
   "scripts": {
     "clean": "rimraf cli.* index.*",
