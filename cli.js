@@ -1,28 +1,4 @@
 #!/usr/bin/env node
-'use strict';
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-/* eslint-disable no-console */
-
-const commander = require('commander');
-const lottery = require('../lib/index');
-
-commander.version('0.0.1', '-v, --version').description('A module for get results of brazilian Caixa lotteries.');
-
-commander.command('result [type] [number]').alias('r').description('Get result of raffle by number, if number is empty get the last').action((() => {
-  var _ref = _asyncToGenerator(function* (type, number) {
-    // console.log(type, number);
-    try {
-      const result = yield lottery.resultByNumber(type.toString(), number);
-      console.info(JSON.parse(result));
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-  return function (_x, _x2) {
-    return _ref.apply(this, arguments);
-  };
-})());
-commander.parse(process.argv);
+/* eslint-disable no-console */(function(a,b){if("function"==typeof define&&define.amd)define([],b);else if("undefined"!=typeof exports)b();else{b(),a.cli={exports:{}}.exports}})(this,function(){"use strict";function a(a,b,c,d,e,f,g){try{var h=a[f](g),i=h.value}catch(a){return void c(a)}h.done?b(i):Promise.resolve(i).then(d,e)}function b(b){return function(){var c=this,d=arguments;return new Promise(function(e,f){function g(b){a(i,e,f,g,h,"next",b)}function h(b){a(i,e,f,g,h,"throw",b)}var i=b.apply(c,d);g(void 0)})}}const c=require("commander"),d=require("./index");c.version("0.0.1","-v, --version").description("A module for get results of brazilian Caixa's lotteries.").usage("\n loterias-caixa r [type] for get the last raffle of this type \n loterias-caixa r [type] [number] get data of an especified raffle by number"),c.command("result <type> [number]").alias("r").description("Get result of raffle by number, if number is empty get the last").action(/*#__PURE__*/function(){var a=b(function*(a,b){// console.log(type, number, cmd['onlynumbers'])
+try{const c=yield d.resultByNumber(a.toString(),b);console.info(JSON.parse(c))}catch(a){console.error(a)}});return function(){return a.apply(this,arguments)}}()),c.parse(process.argv)});
+//# sourceMappingURL=cli.js.map

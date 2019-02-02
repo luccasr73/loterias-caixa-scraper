@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
-const lottery = require('./../src/index');
-
+const lottery = require('./../index')
 lottery.resultByNumber('megasena')
   .then((result) => {
-    console.log(result);
+    console.log(result)
   }).catch((e) => {
-    console.log(e);
-  });
+    console.log(e)
+  })
