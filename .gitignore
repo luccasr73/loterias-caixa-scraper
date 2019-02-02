@@ -29,3 +29,5 @@ jspm_packages
 
 # Editors
 .idea
+package-lock.json
+
