@@ -55,10 +55,10 @@ loterias-caixa r [type] [number]
 
 ## Methods
 
-### _resultByNumber(typeLottery, numberLottery)_
+### _resultByNumber(typeRaffle, numberRaffle)_
 
-**typeLottery: String,<br> numberLottery: Number**<br> Return lottery data<br>
-If number is undefined, this method will return the last lottery data
+**typeRaffle: String,<br> numberRaffle: Number**<br> Return raffle data<br> If
+number is undefined, this method will return the last raffle data
 
 ## Dev
 
