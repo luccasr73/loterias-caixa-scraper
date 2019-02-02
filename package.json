@@ -2,22 +2,23 @@
   "name": "loterias-caixa-scraper",
   "version": "0.0.1",
   "description": "A module for get results of brazilian Caixa's lotteries.",
-  "main": "./lib/index.js",
+  "main": "index",
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf cli.js index.js",
     "lint": "eslint src",
     "lint:watch": "esw -w src",
-    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir ./",
     "prepare": "npm run clean && npm run lint && npm run build"
   },
   "preferGlobal": true,
   "bin": {
-    "loterias-caixa": "./cli.js"
+    "loterias-caixa": "cli.js"
   },
   "files": [
     "lib",
     "src",
-    "cli"
+    "cli",
+    "examples"
   ],
   "repository": {
     "type": "git",
@@ -27,10 +28,7 @@
     "caixa",
     "loterias",
     "lottery",
-    "npm",
-    "module",
-    "node",
-    "javascript"
+    "scraper"
   ],
   "author": "luccasrobert@hotmail.com",
   "license": "MIT",
