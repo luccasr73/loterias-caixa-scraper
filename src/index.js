@@ -9,6 +9,14 @@ function insertCommaAfterTwoChars (str) {
   return str.replace(/\B(?=(\d{2})+(?!\d))/g, ',')
 }
 
+function selectArrayInterval (arr, initial, final) {
+  let arrAux = []
+  for (let i = initial - 1; i <= final - 1; i++) {
+    arrAux.push(arr[i])
+  }
+  return arrAux
+}
+
 async function mountJSON (html, type) {
   // eslint-disable-next-line prefer-const
   let $ = cheerio.load(html)
@@ -19,9 +27,14 @@ async function mountJSON (html, type) {
     return Promise.resolve(JSON.stringify({ err: 'Resultado não disponivel!', errCode: 1 }))
   }
 
+  try {
+    arrData = $('body').text().split('|')
+  } catch (e) {
+    return Promise.reject(JSON.stringify(e))
+  }
+
   if (type === 'megasena') {
     try {
-      arrData = $('body').text().split('|')
       result = {
         numberRaffle: arrData[0],
         locationRaffle: `${arrData[14]},${arrData[12]},${arrData[13]}`,
@@ -30,7 +43,7 @@ async function mountJSON (html, type) {
         date: arrData[11],
         totalCollection: arrData[24],
         // eslint-disable-next-line radix
-        isAccumulated: parseInt(arrData[3]) > 0,
+        isAccumulated: parseInt(arrData[3]) === 0,
         sena: {
           winers: arrData[3],
           prizeByWinner: arrData[4]
@@ -55,7 +68,47 @@ async function mountJSON (html, type) {
       return Promise.reject(JSON.stringify(e))
     }
   }
-  return Promise.resolve(JSON.stringify(result))
+  if (type === 'quina') {
+    try {
+      console.log(arrData)
+      result = {
+        numberRaffle: arrData[0],
+        locationRaffle: `${arrData[4]},${arrData[2]},${arrData[3]}`,
+        unorNumbers: selectArrayInterval(insertCommaAfterTwoChars(arrData[14]).split(','), 1, 5).join(','),
+        orderedNumbers: selectArrayInterval(insertCommaAfterTwoChars(arrData[14]).split(','), 6, 10).join(','),
+        date: arrData[16],
+        totalCollection: arrData[20],
+        // eslint-disable-next-line radix
+        isAccumulated: parseInt(arrData[6]) === 0,
+        quina: {
+          winers: arrData[6],
+          prizeByWinner: arrData[7]
+        },
+        quadra: {
+          winers: arrData[8],
+          prizeByWinner: arrData[9]
+        },
+        terno: {
+          winers: arrData[10],
+          prizeByWinner: arrData[11]
+        },
+        duque: {
+          winers: arrData[23],
+          prizeByWinner: arrData[22]
+        },
+        nextRaffle: {
+          date: arrData[18],
+          estimatedPrize: arrData[17],
+          accumulated: arrData[13]
+        },
+        accumulatedSaoJoao: arrData[21]
+        // eslint-disable-next-line semi
+      }
+    } catch (e) {
+      return Promise.reject(JSON.stringify(e))
+    }
+  }
+  return Promise.resolve(result)
   // )
 }
 
@@ -65,8 +118,8 @@ exports.resultByNumber = async function (type, number) {
   if (number === undefined) {
     try {
       html = await rp(`http://www1.caixa.gov.br/loterias/loterias/${type}/${type}_pesquisa_new.asp`, {
-        jar: true,
-        encoding: 'utf8'
+        jar: true
+        // encoding: 'utf8'
       })
       return await mountJSON(html, type)
     } catch (err) {
@@ -75,8 +128,8 @@ exports.resultByNumber = async function (type, number) {
   } else {
     try {
       html = await rp(`http://www1.caixa.gov.br/loterias/loterias/${type}/${type}_pesquisa_new.asp?submeteu=sim&opcao=concurso&txtConcurso=${number}`, {
-        jar: true,
-        encoding: 'utf8'
+        jar: true
+        // encoding: 'utf8'
       })
       return await mountJSON(html, type)
     } catch (err) {

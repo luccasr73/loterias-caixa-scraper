@@ -6,7 +6,7 @@ const commander = require('commander')
 const lottery = require('./index')
 
 commander
-  .version('0.0.1', '-v, --version')
+  .version('0.1.0', '-v, --version')
   .description('A module for get results of brazilian Caixa\'s lotteries.')
   .usage('\n loterias-caixa r [type] for get the last raffle of this type \n loterias-caixa r [type] [number] get data of an especified raffle by number')
 

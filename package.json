@@ -1,6 +1,6 @@
 {
   "name": "loterias-caixa-scraper",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A module that allows you to pick up data from the lottery of the Brazilian Caixa Econômica Federal",
   "main": "index",
   "scripts": {
@@ -14,12 +14,6 @@
   "bin": {
     "loterias-caixa": "cli.js"
   },
-  "files": [
-    "lib",
-    "src",
-    "cli",
-    "examples"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luccasr73/loterias-caixa-scraper.git"
