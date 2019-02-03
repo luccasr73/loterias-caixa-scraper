@@ -7,7 +7,7 @@ to pick up data from the lottery of the Brazilian Caixa Econômica Federal
 ## Supported Raffles
 
 - Megasena
-- Quina(coming soon)
+- Quina
 - Lotomania(coming soon)
 
 ## Usage
