@@ -1,4 +1,9 @@
 # Loterias caixa scraper
+![](https://img.shields.io/npm/v/loterias-caixa-scraper.svg?style=flat-square)
+![](https://img.shields.io/npm/dt/loterias-caixa-scraper.svg?style=flat-square)
+![](https://img.shields.io/npm/l/loterias-caixa-scraper.svg?style=flat-square)
+![](https://img.shields.io/david/luccasr73/loterias-caixa-scraper.svg?style=flat-square)
+![](https://img.shields.io/snyk/vulnerabilities/npm/loterias-caixa-scraper.svg?style=flat-square)
 
 Um módulo nodejs que permite pegar dados dos resultados dos sorteios da Caixa
 Econômica Federal Brasileira <br> [English] <br> A nodejs module that allows you
