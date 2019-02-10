@@ -10,12 +10,18 @@ to pick up data from the lottery of the Brazilian Caixa Econômica Federal
 - Quina
 - Lotofacil(coming soon)
 
+## Install
+
+```
+npm i loterias-caixa-scraper --save
+```
+
 ## Usage
 
 ```javascript
-const lottery = require('./../index');
+const lottery = require('loterias-caixa-scraper')
 // or import
-import { resultByNumber } from './../index';
+import { resultByNumber } from 'loterias-caixa-scraper'
 ```
 
 ### Get last result
@@ -25,11 +31,11 @@ import { resultByNumber } from './../index';
 lottery
   .resultByNumber('megasena')
   .then((result) => {
-    console.log(result);
+    console.log(result)
   })
   .catch((e) => {
-    console.log(e);
-  });
+    console.log(e)
+  })
 ```
 
 ### Get an especific result by number
@@ -39,10 +45,10 @@ lottery
 lottery
   .resultByNumber('megasena', 2117)
   .then((result) => {
-    console.log(result);
+    console.log(result)
   })
   .catch((e) => {
-    console.log(e);
+    console.log(e)
   });
 ```
 
