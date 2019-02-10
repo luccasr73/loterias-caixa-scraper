@@ -8,7 +8,7 @@ to pick up data from the lottery of the Brazilian Caixa Econômica Federal
 
 - Megasena
 - Quina
-- Lotomania(coming soon)
+- Lotofacil(coming soon)
 
 ## Usage
 
