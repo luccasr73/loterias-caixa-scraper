@@ -14,7 +14,7 @@ function removeDots (str) {
 }
 
 function selectArrayInterval (arr, initial, final) {
-  let arrAux = []
+  const arrAux = []
   for (let i = initial - 1; i <= final - 1; i++) {
     arrAux.push(arr[i])
   }
