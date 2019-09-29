@@ -17,7 +17,7 @@ commander.command('result <type> [number]')
     // console.log(type, number, cmd['onlynumbers'])
     try {
       const result = await lottery.resultByNumber(type.toString(), number)
-      console.info(JSON.parse(result))
+      console.info(result)
     } catch (error) {
       console.error(error)
     }
