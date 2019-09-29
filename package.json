@@ -1,6 +1,6 @@
 {
   "name": "loterias-caixa-scraper",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A module that allows you to pick up data from the lottery of the Brazilian Caixa Econômica Federal",
   "main": "index",
   "scripts": {
