@@ -108,8 +108,52 @@ async function mountJSON (html, type) {
       return Promise.reject(JSON.stringify(e))
     }
   }
+
+  if (type === 'lotofacil') {
+    try {
+      console.log(arrData, arrData.length)
+      result = {
+        numberRaffle: arrData[0],
+        locationRaffle: `${arrData[31]},${arrData[32]},${arrData[33]}`,
+        unorNumbers: selectArrayInterval(arrData, 39, 53).join(','),
+        orderedNumbers: selectArrayInterval(arrData, 4, 18).join(','),
+        date: arrData[34],
+        totalCollection: arrData[55],
+        // eslint-disable-next-line radix
+        isAccumulated: parseInt(arrData[18]) === 0,
+        acertos15: {
+          winers: arrData[18],
+          prizeByWinner: arrData[19]
+        },
+        acertos14: {
+          winers: arrData[20],
+          prizeByWinner: arrData[21]
+        },
+        acertos13: {
+          winers: arrData[22],
+          prizeByWinner: arrData[23]
+        },
+        acertos12: {
+          winers: arrData[24],
+          prizeByWinner: arrData[25]
+        },
+        acertos11: {
+          winers: arrData[26],
+          prizeByWinner: arrData[27]
+        },
+        nextRaffle: {
+          date: arrData[54],
+          estimatedPrize: arrData[53],
+          accumulated: arrData[56]
+        }
+        // eslint-disable-next-line semi
+      }
+    } catch (e) {
+      return Promise.reject(JSON.stringify(e))
+    }
+  }
+
   return Promise.resolve(result)
-  // )
 }
 
 // eslint-disable-next-line func-names

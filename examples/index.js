@@ -6,3 +6,10 @@ lottery.resultByNumber('quina')
   }).catch((e) => {
     console.log(e)
   })
+
+lottery.resultByNumber('lotofacil')
+  .then((result) => {
+    console.log('lotofacil result: ', result)
+  }).catch((e) => {
+    console.log(e)
+  })
