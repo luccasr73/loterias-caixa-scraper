@@ -9,6 +9,10 @@ function insertCommaAfterTwoChars (str) {
   return str.replace(/\B(?=(\d{2})+(?!\d))/g, ',')
 }
 
+function removeDots (str) {
+  return str.replace(/\./g, '')
+}
+
 function selectArrayInterval (arr, initial, final) {
   let arrAux = []
   for (let i = initial - 1; i <= final - 1; i++) {
@@ -45,15 +49,15 @@ async function mountJSON (html, type) {
         // eslint-disable-next-line radix
         isAccumulated: parseInt(arrData[3]) === 0,
         sena: {
-          winers: arrData[3],
+          winers: removeDots(arrData[3]),
           prizeByWinner: arrData[4]
         },
         quina: {
-          winers: arrData[5],
+          winers: removeDots(arrData[5]),
           prizeByWinner: arrData[6]
         },
         quadra: {
-          winers: arrData[7],
+          winers: removeDots(arrData[7]),
           prizeByWinner: arrData[8]
         },
         nextRaffle: {
@@ -70,7 +74,7 @@ async function mountJSON (html, type) {
   }
   if (type === 'quina') {
     try {
-      console.log(arrData)
+      // console.log(arrData)
       result = {
         numberRaffle: arrData[0],
         locationRaffle: `${arrData[4]},${arrData[2]},${arrData[3]}`,
@@ -81,19 +85,19 @@ async function mountJSON (html, type) {
         // eslint-disable-next-line radix
         isAccumulated: parseInt(arrData[6]) === 0,
         quina: {
-          winers: arrData[6],
+          winers: removeDots(arrData[6]),
           prizeByWinner: arrData[7]
         },
         quadra: {
-          winers: arrData[8],
+          winers: removeDots(arrData[8]),
           prizeByWinner: arrData[9]
         },
         terno: {
-          winers: arrData[10],
+          winers: removeDots(arrData[10]),
           prizeByWinner: arrData[11]
         },
         duque: {
-          winers: arrData[23],
+          winers: removeDots(arrData[23]),
           prizeByWinner: arrData[22]
         },
         nextRaffle: {
@@ -111,7 +115,7 @@ async function mountJSON (html, type) {
 
   if (type === 'lotofacil') {
     try {
-      console.log(arrData, arrData.length)
+      // console.log(arrData, arrData.length)
       result = {
         numberRaffle: arrData[0],
         locationRaffle: `${arrData[31]},${arrData[32]},${arrData[33]}`,
@@ -122,23 +126,23 @@ async function mountJSON (html, type) {
         // eslint-disable-next-line radix
         isAccumulated: parseInt(arrData[18]) === 0,
         acertos15: {
-          winers: arrData[18],
+          winers: removeDots(arrData[18]),
           prizeByWinner: arrData[19]
         },
         acertos14: {
-          winers: arrData[20],
+          winers: removeDots(arrData[20]),
           prizeByWinner: arrData[21]
         },
         acertos13: {
-          winers: arrData[22],
+          winers: removeDots(arrData[22]),
           prizeByWinner: arrData[23]
         },
         acertos12: {
-          winers: arrData[24],
+          winers: removeDots(arrData[24]),
           prizeByWinner: arrData[25]
         },
         acertos11: {
-          winers: arrData[26],
+          winers: removeDots(arrData[26]),
           prizeByWinner: arrData[27]
         },
         nextRaffle: {
@@ -162,8 +166,8 @@ exports.resultByNumber = async function (type, number) {
   if (number === undefined) {
     try {
       html = await rp(`http://www1.caixa.gov.br/loterias/loterias/${type}/${type}_pesquisa_new.asp`, {
-        jar: true
-        // encoding: 'utf8'
+        jar: true,
+        encoding: 'binary'
       })
       return await mountJSON(html, type)
     } catch (err) {
@@ -172,8 +176,8 @@ exports.resultByNumber = async function (type, number) {
   } else {
     try {
       html = await rp(`http://www1.caixa.gov.br/loterias/loterias/${type}/${type}_pesquisa_new.asp?submeteu=sim&opcao=concurso&txtConcurso=${number}`, {
-        jar: true
-        // encoding: 'utf8'
+        jar: true,
+        encoding: 'binary'
       })
       return await mountJSON(html, type)
     } catch (err) {
