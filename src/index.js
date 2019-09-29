@@ -145,7 +145,7 @@ async function mountJSON (html, type) {
           date: arrData[54],
           estimatedPrize: arrData[53],
           accumulated: arrData[56]
-        },
+        }
         // eslint-disable-next-line semi
       }
     } catch (e) {
