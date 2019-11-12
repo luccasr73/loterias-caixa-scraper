@@ -49,15 +49,15 @@ async function mountJSON (html, type) {
         // eslint-disable-next-line radix
         isAccumulated: parseInt(arrData[3]) === 0,
         sena: {
-          winers: removeDots(arrData[3]),
+          winners: removeDots(arrData[3]),
           prizeByWinner: arrData[4]
         },
         quina: {
-          winers: removeDots(arrData[5]),
+          winners: removeDots(arrData[5]),
           prizeByWinner: arrData[6]
         },
         quadra: {
-          winers: removeDots(arrData[7]),
+          winners: removeDots(arrData[7]),
           prizeByWinner: arrData[8]
         },
         nextRaffle: {
@@ -85,19 +85,19 @@ async function mountJSON (html, type) {
         // eslint-disable-next-line radix
         isAccumulated: parseInt(arrData[6]) === 0,
         quina: {
-          winers: removeDots(arrData[6]),
+          winners: removeDots(arrData[6]),
           prizeByWinner: arrData[7]
         },
         quadra: {
-          winers: removeDots(arrData[8]),
+          winners: removeDots(arrData[8]),
           prizeByWinner: arrData[9]
         },
         terno: {
-          winers: removeDots(arrData[10]),
+          winners: removeDots(arrData[10]),
           prizeByWinner: arrData[11]
         },
         duque: {
-          winers: removeDots(arrData[23]),
+          winners: removeDots(arrData[23]),
           prizeByWinner: arrData[22]
         },
         nextRaffle: {
@@ -126,23 +126,23 @@ async function mountJSON (html, type) {
         // eslint-disable-next-line radix
         isAccumulated: parseInt(arrData[18]) === 0,
         acertos15: {
-          winers: removeDots(arrData[18]),
+          winners: removeDots(arrData[18]),
           prizeByWinner: arrData[19]
         },
         acertos14: {
-          winers: removeDots(arrData[20]),
+          winners: removeDots(arrData[20]),
           prizeByWinner: arrData[21]
         },
         acertos13: {
-          winers: removeDots(arrData[22]),
+          winners: removeDots(arrData[22]),
           prizeByWinner: arrData[23]
         },
         acertos12: {
-          winers: removeDots(arrData[24]),
+          winners: removeDots(arrData[24]),
           prizeByWinner: arrData[25]
         },
         acertos11: {
-          winers: removeDots(arrData[26]),
+          winners: removeDots(arrData[26]),
           prizeByWinner: arrData[27]
         },
         nextRaffle: {
