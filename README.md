@@ -5,9 +5,10 @@
 ![](https://img.shields.io/david/luccasr73/loterias-caixa-scraper.svg?style=flat-square)
 ![](https://img.shields.io/snyk/vulnerabilities/npm/loterias-caixa-scraper.svg?style=flat-square)
 
-Um módulo nodejs que permite pegar dados dos resultados dos sorteios da Caixa
-Econômica Federal Brasileira <br> [English] <br> A nodejs module that allows you
-to pick up data from the lottery of the Brazilian Caixa Econômica Federal
+#NOTICE
+This package doesn't work anymore
+
+Allows you to pick up data from the lottery of the Brazilian Caixa Econômica Federal
 
 ## Supported Raffles
 
